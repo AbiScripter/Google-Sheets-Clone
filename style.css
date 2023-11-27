@@ -1,0 +1,51 @@
+.table-container {
+  margin-top: 2rem;
+  display: flex;
+  border: 5px solid rgb(223, 0, 0);
+  min-width: 282rem;
+}
+
+.cell-container {
+  overflow: auto;
+  width: 100%;
+  height: fit-content;
+}
+
+.cell {
+  width: 165px;
+  height: 36px;
+  border: 1px solid blue;
+  display: inline-block;
+}
+
+.row-container {
+  background: aqua;
+  display: flex;
+  flex-direction: column;
+  /* align-self: center; */
+  align-items: center;
+
+  & p {
+    width: 165px;
+    height: 36px;
+    border: 0.2px solid red;
+    margin: 0;
+  }
+}
+
+#cell-display {
+  border: 2px solid blue;
+  width: 70px;
+  padding: 7px 15px;
+}
+
+.tools {
+  background-color: red;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.clicked {
+  background-color: red;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sheets</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="headers">
+      <p id="cell-display">select cell</p>
+      <form class="tools" id="form">
+        <div class="tool-row">
+          <select name="fontFamily" id="fontFamily">
+            <option selected value="Arial, sans-serif">Arial</option>
+            <option value="Verdana, sans-serif">Verdana</option>
+            <option value="Helvetica, sans-serif">Helvetica</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="'Roboto', sans-serif">Roboto</option>
+          </select>
+
+          <input
+            type="number"
+            value="16"
+            min="8"
+            max="32"
+            id="fontSize"
+            class="value-based"
+            name="fontSize"
+          />
+        </div>
+
+        <div class="tool-row">
+          <input name="bold" type="checkbox" class="click-based" id="bold" />
+          <label for="bold"> Bold </label>
+
+          <input
+            type="checkbox"
+            name="italic"
+            class="click-based"
+            id="italic"
+          />
+          <label for="italic"> italic</label>
+
+          <input
+            type="checkbox"
+            name="underline"
+            class="click-based"
+            id="underline"
+          />
+          <label for="underline"> underline </label>
+        </div>
+
+        <div class="tool-row">
+          <input
+            checked
+            type="radio"
+            class="disp"
+            name="textAlign"
+            value="left"
+            id="left"
+          />
+          <label for="left" class="material-symbols-outlined option-btn"
+            >format_align_left</label
+          >
+
+          <input
+            type="radio"
+            class="disp"
+            name="textAlign"
+            value="center"
+            id="center"
+          />
+          <label for="center" class="material-symbols-outlined option-btn"
+            >format_align_center</label
+          >
+
+          <input
+            type="radio"
+            class="disp"
+            name="textAlign"
+            value="right"
+            id="right"
+          />
+          <label for="right" class="material-symbols-outlined option-btn"
+            >format_align_right</label
+          >
+        </div>
+
+        <div class="tool-row">
+          <label for="background">background</label>
+          <input
+            type="color"
+            id="bgColor"
+            name="bgcolor"
+            class="value-based"
+            value="#ffffff"
+          />
+
+          <label for="color">color</label>
+          <input type="color" name="color" id="color" class="value-based" />
+        </div>
+      </form>
+    </div>
+
+    <div class="table-container">
+      <div class="row-container"></div>
+      <div class="cell-container"></div>
+    </div>
+
+    <!-- <script src="/script.js"></script> -->
+    <script src="/secondVersion.js"></script>
+  </body>
+</html>
