@@ -1,21 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --primary-color: #fff;
+  --secondary-color: #dedfde;
+  --border-color: #eeeeee;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+/* NAV */
+
+.nav {
+  list-style-type: none;
+  display: flex;
+  margin-left: 3rem;
+
+  & li {
+    padding: 0 1rem;
+  }
+
+  & li:hover {
+    background-color: var(--border-color);
+  }
+
+  & li:nth-of-type(2) {
+    background-color: var(--border-color);
+  }
+}
+
+/* FORM */
+form {
+  background-color: var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.7rem;
+
+  & * {
+    min-height: 34px;
+    max-height: 35px;
+    /* align-self: center; */
+  }
+}
+
+.tool-row {
+  display: flex;
+}
+
+input {
+  visibility: hidden;
+}
+
+input[type="number"],
+input[type="text"]:last-of-type {
+  visibility: visible;
+}
+
+select,
+input[type="number"] {
+  border: none;
+  outline: none;
+  width: 125px;
+  margin-right: 1.5rem;
+  border-radius: 2px;
+}
+
+/* EXPRESSION */
+
+#cell-display {
+  border: 3px solid var(--secondary-color);
+  width: 70px;
+}
+
+.expression-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  background-color: var(--border-color);
+  padding: 0.5rem;
+
+  & input {
+    flex-grow: 1;
+    height: fit-content;
+    border: none;
+  }
+}
+
+/* TABLES */
+
 .table-container {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  border: 5px solid rgb(41, 223, 0);
+  border: 2px solid var(--secondary-color);
   width: fit-content;
+  background-color: var(--secondary-color);
+}
+
+.number-row-container {
+  & p {
+    width: 35px;
+    height: 36px;
+    border: 0.2px solid var(--secondary-color);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+  }
 }
 
 .alphabet-col-container {
   display: flex;
   height: 40px;
+  text-align: center;
+
+  & p:first-of-type {
+    width: 35px;
+    background-color: #cbcecc;
+  }
 
   & p {
-    /* background: rgb(211, 211, 37); */
+    background-color: var(--primary-color);
     width: 165px;
     height: 36px;
-    border: 0.2px solid red;
+    border: 0.2px solid var(--secondary-color);
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -36,38 +152,25 @@
 .cell {
   width: 165px;
   height: 36px;
-  border: 1px solid blue;
+  border: 1px solid var(--secondary-color);
   display: inline-block;
+  /* background-color: var(--main-color); */
+  background-color: var(--primary-color);
 }
 
-.number-row-container {
-  background: aqua;
+/* FOOTER */
 
-  & p {
-    width: 165px;
-    height: 36px;
-    border: 0.2px solid red;
-    margin: 0;
+.footer {
+  position: fixed;
+  bottom: 0%;
+  background-color: #ffffff;
+  min-width: 100%;
+
+  & button {
+    margin-right: 1.5rem;
   }
 }
-
-#cell-display {
-  border: 2px solid blue;
-  width: 70px;
-  padding: 7px 15px;
-}
-
-.tools {
-  background-color: red;
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
-
-.clicked {
-  background-color: red;
-}
-
+/* for sheet toggling */
 .hide {
   display: none;
 }
