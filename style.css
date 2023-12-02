@@ -1,8 +1,30 @@
 .table-container {
   margin-top: 2rem;
   display: flex;
-  border: 5px solid rgb(223, 0, 0);
-  min-width: 282rem;
+  flex-direction: column;
+  border: 5px solid rgb(41, 223, 0);
+  width: fit-content;
+}
+
+.alphabet-col-container {
+  display: flex;
+  height: 40px;
+
+  & p {
+    /* background: rgb(211, 211, 37); */
+    width: 165px;
+    height: 36px;
+    border: 0.2px solid red;
+    margin: 0;
+  }
+}
+
+.sample-div {
+  display: flex;
+}
+
+.row {
+  display: flex;
 }
 
 .cell-container {
@@ -18,12 +40,8 @@
   display: inline-block;
 }
 
-.row-container {
+.number-row-container {
   background: aqua;
-  display: flex;
-  flex-direction: column;
-  /* align-self: center; */
-  align-items: center;
 
   & p {
     width: 165px;
