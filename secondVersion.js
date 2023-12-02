@@ -1,12 +1,22 @@
 let footer = document.querySelector(".footer");
 let activeElement = null;
+let count = 0;
+
+let createSheetBtn = document.createElement("button");
+createSheetBtn.innerText = `Create Sheet`;
+createSheetBtn.className = "create-sheet-btn";
+
+let sheetToggleContainer = document.createElement("div");
+sheetToggleContainer.appendChild(createSheetBtn);
+footer.appendChild(sheetToggleContainer);
 
 function sheet(count) {
   const parent = document.querySelector(".parent");
 
   const tableContainer = document.createElement("div");
   tableContainer.className = `table-container`;
-  tableContainer.classList.add(`table-${count}`);
+  // tableContainer.classList.add(`table-${count}`);
+  tableContainer.setAttribute("data-id", count);
 
   const alphabetColContainer = document.createElement("div");
   alphabetColContainer.className = "alphabet-col-container";
@@ -161,22 +171,15 @@ function sheet(count) {
   }
 }
 
-let sheetToggleContainer = document.createElement("div");
-
-let createSheetBtn = document.createElement("button");
-createSheetBtn.innerText = `Create Sheet`;
-createSheetBtn.className = "create-sheet-btn";
-sheetToggleContainer.appendChild(createSheetBtn);
-footer.appendChild(sheetToggleContainer);
-
-let count = 0;
 function createSheet() {
-  //creating sheet
+  //creating sheet button
   let sheetBtn = document.createElement("button");
   sheetBtn.innerText = `Sheet ${++count}`;
   sheetBtn.className = "sheet-btn";
+  sheetBtn.setAttribute("data-id", count);
   sheetToggleContainer.appendChild(sheetBtn);
 
+  //passing current count[index]
   sheet(count);
 }
 
@@ -184,16 +187,34 @@ function createSheet() {
 createSheet();
 
 createSheetBtn.addEventListener("click", () => {
-  let allActive = document.querySelectorAll(".active");
-
-  console.log(allActive);
   createSheet();
 
-  //!resetting the active element
+  //!resetting the active element[very important!!!!!]
   activeElement = null;
+
+  //display current sheet
+  displayCurrSheet(count);
 });
 
-// sheetToggleContainer.addEventListener("click", (e) => {
-//   if (e.target.tagName == "BUTTON") {
-//   }
-// });
+//!displaying Current Sheet
+function displayCurrSheet(currIndex) {
+  let allTables = document.querySelectorAll(".table-container");
+
+  allTables.forEach((el) => {
+    if (currIndex !== Number(el.getAttribute("data-id"))) {
+      el.classList.add("hide");
+    } else {
+      el.classList.remove("hide");
+    }
+  });
+}
+
+//!toggle between sheets function
+sheetToggleContainer.addEventListener("click", (e) => {
+  if (
+    e.target.tagName == "BUTTON" &&
+    e.target.className !== "create-sheet-btn"
+  ) {
+    displayCurrSheet(Number(e.target.getAttribute("data-id")));
+  }
+});
