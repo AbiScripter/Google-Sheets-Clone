@@ -43,24 +43,19 @@
             min="8"
             max="32"
             id="fontSize"
-            class="value-based"
             name="fontSize"
           />
         </div>
+        <!-- ------------------------------------------ -->
 
         <div class="tool-row">
-          <input name="bold" type="checkbox" class="click-based" id="bold" />
+          <input name="bold" type="checkbox" id="bold" class="bg-change" />
           <!-- <label for="bold"> Bold </label> -->
           <label for="bold">
             <span class="material-symbols-outlined"> format_bold </span>
           </label>
 
-          <input
-            type="checkbox"
-            name="italic"
-            class="click-based"
-            id="italic"
-          />
+          <input type="checkbox" name="italic" id="italic" class="bg-change" />
           <label for="italic"
             ><span class="material-symbols-outlined">
               format_italic
@@ -70,68 +65,45 @@
           <input
             type="checkbox"
             name="underline"
-            class="click-based"
             id="underline"
+            class="bg-change"
           />
           <label for="underline">
             <span class="material-symbols-outlined"> format_underlined </span>
           </label>
         </div>
+        <!-- ------------------------------------------ -->
 
         <div class="tool-row">
-          <input
-            checked
-            type="radio"
-            class="disp"
-            name="textAlign"
-            value="left"
-            id="left"
-          />
+          <input checked type="radio" name="textAlign" value="left" id="left" />
           <label for="left" class="material-symbols-outlined option-btn">
             <span class="material-symbols-outlined"> format_align_left </span>
           </label>
 
-          <input
-            type="radio"
-            class="disp"
-            name="textAlign"
-            value="center"
-            id="center"
-          />
+          <input type="radio" name="textAlign" value="center" id="center" />
           <label for="center" class="material-symbols-outlined option-btn"
             ><span class="material-symbols-outlined">
               format_align_center
             </span>
           </label>
 
-          <input
-            type="radio"
-            class="disp"
-            name="textAlign"
-            value="right"
-            id="right"
-          />
+          <input type="radio" name="textAlign" value="right" id="right" />
           <label for="right" class="material-symbols-outlined option-btn"
             ><span class="material-symbols-outlined"> format_align_right</span>
           </label>
         </div>
+        <!-- ------------------------------------------ -->
 
         <div class="tool-row">
           <label for="bgColor">
             <span class="material-symbols-outlined"> colors </span>
           </label>
-          <input
-            type="color"
-            id="bgColor"
-            name="bgcolor"
-            class="value-based"
-            value="#ffffff"
-          />
+          <input type="color" id="bgColor" name="bgcolor" value="#ffffff" />
 
           <label for="color">
             <span class="material-symbols-outlined">format_color_text</span>
           </label>
-          <input type="color" name="color" id="color" class="value-based" />
+          <input type="color" name="color" id="color" />
         </div>
       </form>
 

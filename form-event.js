@@ -1,6 +1,4 @@
 function onFormChange(cellsStyleMap) {
-  console.log(activeElement);
-
   if (!activeElement) {
     alert("please select a cell to make changes");
     form.reset();
