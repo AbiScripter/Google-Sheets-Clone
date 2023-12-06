@@ -135,7 +135,7 @@ input[type="number"] {
   }
 }
 
-.sample-div {
+.dummy-div {
   display: flex;
 }
 
@@ -175,8 +175,7 @@ input[type="number"] {
   display: none;
 }
 
-/* i dont know */
-
-.test {
+/* for sheetButton toggling */
+.sheet-btn-active {
   background-color: orange;
 }

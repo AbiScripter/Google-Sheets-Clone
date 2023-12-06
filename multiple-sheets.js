@@ -4,7 +4,7 @@ function createSheet() {
   sheetBtn.innerText = `Sheet ${++count}`;
   sheetBtn.className = "sheet-btn";
   sheetBtn.setAttribute("data-id", count);
-  sheetBtn.classList.add("test");
+  sheetBtn.classList.add("sheet-btn-active");
   sheetToggleContainer.appendChild(sheetBtn);
 
   //passing current count[index]
@@ -26,6 +26,30 @@ createSheetBtn.addEventListener("click", (e) => {
   displayCurrSheet(count);
 });
 
+deleteSheetBtn.addEventListener("click", () => {
+  let activeSheetBtn = document.querySelector(".sheet-btn-active");
+  let allTables = document.querySelectorAll(".table-container");
+
+  if (allTables.length == 1) {
+    alert("this is the only sheet , can't delete");
+    return;
+  }
+
+  allTables.forEach((el) => {
+    if (
+      activeSheetBtn.getAttribute("data-id") ==
+      Number(el.getAttribute("data-id"))
+    ) {
+      el.remove();
+      activeSheetBtn.remove();
+
+      let firstRemainingBtn = document.querySelector(".sheet-btn");
+
+      displayCurrSheet(Number(firstRemainingBtn.getAttribute("data-id")));
+    }
+  });
+});
+
 //!displaying Current Sheet
 function displayCurrSheet(currIndex) {
   let allSheetBtns = document.querySelectorAll(".sheet-btn");
@@ -33,14 +57,13 @@ function displayCurrSheet(currIndex) {
 
   allSheetBtns.forEach((el) => {
     if (currIndex == Number(el.getAttribute("data-id"))) {
-      el.classList.add("test");
+      el.classList.add("sheet-btn-active");
     } else {
-      el.classList.remove("test");
+      el.classList.remove("sheet-btn-active");
     }
   });
 
   allTables.forEach((el) => {
-    console.log(el);
     if (currIndex !== Number(el.getAttribute("data-id"))) {
       el.classList.add("hide");
     } else {
@@ -51,10 +74,7 @@ function displayCurrSheet(currIndex) {
 
 //!toggle between sheets function
 sheetToggleContainer.addEventListener("click", (e) => {
-  if (
-    e.target.tagName == "BUTTON" &&
-    e.target.className !== "create-sheet-btn"
-  ) {
+  if (e.target.className == "sheet-btn") {
     displayCurrSheet(Number(e.target.getAttribute("data-id")));
   }
 });

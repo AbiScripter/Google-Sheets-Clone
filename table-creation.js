@@ -4,6 +4,7 @@ const totalRows = 50;
 //!creating Alphabet columns
 
 function createAlphabetRow(alphabetColContainer) {
+  console.log("dfas");
   for (let i = 0; i <= totalColumns; i++) {
     const colBtn = document.createElement("p");
     if (i == 0) {
