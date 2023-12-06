@@ -4,6 +4,7 @@ function createSheet() {
   sheetBtn.innerText = `Sheet ${++count}`;
   sheetBtn.className = "sheet-btn";
   sheetBtn.setAttribute("data-id", count);
+  sheetBtn.classList.add("test");
   sheetToggleContainer.appendChild(sheetBtn);
 
   //passing current count[index]
@@ -13,7 +14,9 @@ function createSheet() {
 //initial render
 createSheet();
 
-createSheetBtn.addEventListener("click", () => {
+function testing() {}
+
+createSheetBtn.addEventListener("click", (e) => {
   createSheet();
 
   //!resetting the active element[very important!!!!!]
@@ -25,9 +28,19 @@ createSheetBtn.addEventListener("click", () => {
 
 //!displaying Current Sheet
 function displayCurrSheet(currIndex) {
+  let allSheetBtns = document.querySelectorAll(".sheet-btn");
   let allTables = document.querySelectorAll(".table-container");
 
+  allSheetBtns.forEach((el) => {
+    if (currIndex == Number(el.getAttribute("data-id"))) {
+      el.classList.add("test");
+    } else {
+      el.classList.remove("test");
+    }
+  });
+
   allTables.forEach((el) => {
+    console.log(el);
     if (currIndex !== Number(el.getAttribute("data-id"))) {
       el.classList.add("hide");
     } else {

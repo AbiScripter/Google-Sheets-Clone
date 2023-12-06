@@ -117,10 +117,13 @@ function sheet(count) {
       activeElement.getAttribute("data-id")
     );
 
+    console.log(cellstyleobject);
     for (const [key, value] of Object.entries(cellstyleobject)) {
       //for bold , italic and undeline
       //these three options have a class bg-change in html
-      if (form[key].classList.contains("bg-change")) {
+
+      //!using ?[optional chaining] => to handle undefined value from (form[key].classList = undefined)
+      if (form[key].classList?.contains("bg-change")) {
         if (value == true) {
           form[key].nextElementSibling.style.backgroundColor = "red";
         } else {
