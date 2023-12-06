@@ -2,9 +2,7 @@ const totalColumns = 26;
 const totalRows = 50;
 
 //!creating Alphabet columns
-
 function createAlphabetRow(alphabetColContainer) {
-  console.log("dfas");
   for (let i = 0; i <= totalColumns; i++) {
     const colBtn = document.createElement("p");
     if (i == 0) {
@@ -18,7 +16,6 @@ function createAlphabetRow(alphabetColContainer) {
 }
 
 //!creating Number columns
-
 function createNumberRow(numberRowContainer) {
   for (let i = 0; i < totalRows; i++) {
     const rowBtn = document.createElement("p");
@@ -28,7 +25,6 @@ function createNumberRow(numberRowContainer) {
 }
 
 //!creating Cells
-
 function createCellRow(cellContainer) {
   for (let row = 0; row < 50; row++) {
     const rowElement = document.createElement("div");

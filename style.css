@@ -8,25 +8,29 @@
 
 * {
   font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 /* NAV */
-
 .nav {
   list-style-type: none;
   display: flex;
-  margin-left: 3rem;
-
+  background-color: #1d7e67;
+  color: var(--primary-color);
+  padding-left: 2rem;
   & li {
     padding: 0 1rem;
   }
 
   & li:hover {
     background-color: var(--border-color);
+    color: black;
   }
 
   & li:nth-of-type(2) {
     background-color: var(--border-color);
+    color: black;
   }
 }
 
@@ -35,18 +39,35 @@ form {
   background-color: var(--border-color);
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding: 0.7rem;
+  /* gap: 2rem; */
+  padding: 1rem 2rem 0.4rem 2rem;
 
   & * {
     min-height: 34px;
     max-height: 35px;
-    /* align-self: center; */
+    margin-top: 0.25rem;
   }
+}
+
+form label {
+  margin-right: 1rem;
+}
+
+form span:hover {
+  background-color: #cbcecc;
 }
 
 .tool-row {
   display: flex;
+  align-items: center;
+}
+
+.tool-row:last-of-type {
+  margin-left: 1rem;
+
+  & input[type="color"] {
+    margin-right: -2rem;
+  }
 }
 
 input {
@@ -65,10 +86,10 @@ input[type="number"] {
   width: 125px;
   margin-right: 1.5rem;
   border-radius: 2px;
+  padding-left: 0.4rem;
 }
 
-/* EXPRESSION */
-
+/* EXPRESSION - CONTAINER*/
 #cell-display {
   border: 3px solid var(--secondary-color);
   width: 70px;
@@ -81,18 +102,17 @@ input[type="number"] {
   text-align: center;
   background-color: var(--border-color);
   padding: 0.5rem;
-
+  padding-left: 1rem;
   & input {
     flex-grow: 1;
-    height: fit-content;
+    height: 1.7rem;
     border: none;
   }
 }
 
 /* TABLES */
-
 .table-container {
-  margin-top: 2rem;
+  padding-top: 0.2rem;
   display: flex;
   flex-direction: column;
   border: 2px solid var(--secondary-color);
@@ -154,22 +174,42 @@ input[type="number"] {
   height: 36px;
   border: 1px solid var(--secondary-color);
   display: inline-block;
-  /* background-color: var(--main-color); */
   background-color: var(--primary-color);
 }
 
 /* FOOTER */
-
 .footer {
+  border-top: 2px solid #cbcecc;
+  padding: 0.5rem;
+  padding-left: 2rem;
+
   position: fixed;
   bottom: 0%;
-  background-color: #ffffff;
+  background-color: var(--primary-color);
   min-width: 100%;
 
   & button {
     margin-right: 1.5rem;
+    padding: 0.2rem;
+    background-color: var(--border-color);
+    border: none;
+    width: 7rem;
+  }
+
+  & button:hover {
+    background-color: #cbcecc;
+    cursor: pointer;
+  }
+
+  & .create-sheet-btn:hover {
+    background-color: #1d7e67;
+  }
+
+  & .delete-sheet-btn:hover {
+    background-color: red;
   }
 }
+
 /* for sheet toggling */
 .hide {
   display: none;
@@ -177,5 +217,10 @@ input[type="number"] {
 
 /* for sheetButton toggling */
 .sheet-btn-active {
-  background-color: orange;
+  background-color: #a3ccff !important;
+}
+
+/* for form options background */
+.form-option-active {
+  background-color: #cbcecc;
 }

@@ -10,6 +10,7 @@ const deleteSheetBtn = document.querySelector(".delete-sheet-btn");
 
 let activeElement = null;
 let count = 0;
+let cellsStyleMap;
 
 const defaultStyle = {
   bold: false,
@@ -55,79 +56,19 @@ function sheet(count) {
 
   ////////////////////////////////////////////////
 
-  let cellsStyleMap = new Map();
-
-  //cellContainer => whole 50x26 cells
-  // cellContainer.addEventListener("click", (e) => {
-  //   activeElement = e.target;
-
-  //   let selectedID = activeElement.getAttribute("data-id");
-  //   cellDisplay.innerText = selectedID;
-
-  //   //creating style object of that cell for the first time
-  //   if (cellsStyleMap.get(selectedID) === undefined) {
-  //     cellsStyleMap.set(selectedID, defaultStyle);
-  //   }
-
-  //   //set the current values of the cell in the form options
-  //   setFormOptions(cellsStyleMap.get(selectedID));
-
-  //   //the current values of the cell is set in form,
-  //   //now to adding background colors to form options for the selected cell
-  //   toggleFormBackground();
-  // });
-
-  //function called when user clicks on the cell
-  //function called when any change in form happened
-  function toggleFormBackground() {
-    //getting active cell style object
-    let cellstyleobject = cellsStyleMap.get(
-      activeElement.getAttribute("data-id")
-    );
-
-    for (const [key, value] of Object.entries(cellstyleobject)) {
-      //for bold , italic and undeline
-      //these three options have a class bg-change in html
-
-      //using ?[optional chaining] => to handle undefined value from (form[key].classList = undefined)
-      if (form[key].classList?.contains("bg-change")) {
-        if (value == true) {
-          form[key].nextElementSibling.style.backgroundColor = "red";
-        } else {
-          form[key].nextElementSibling.style.backgroundColor = "";
-        }
-      }
-
-      if (value == "left" || value == "center" || value == "right") {
-        //for radio buttons
-        //form[key] results a radioNodelist
-        //to convert radio node list to array we use Array.from()
-        Array.from(form[key]).forEach((el) => {
-          if (el.checked) {
-            el.nextElementSibling.style.backgroundColor = "red";
-          } else {
-            el.nextElementSibling.style.backgroundColor = "";
-          }
-        });
-      }
-
-      //!nextElementSibling is used because the checkboxes are hid
-    }
-  }
+  cellsStyleMap = new Map();
 
   form.addEventListener("change", () => {
-    onFormChange(cellsStyleMap);
+    if (!activeElement) {
+      alert("please select a cell to make changes");
+      return;
+    }
 
-    //any change in form have to apply in  options
-    toggleFormBackground();
+    onFormChange(cellsStyleMap);
   });
 
   // cellContainer => whole 50x26 cells
   cellContainer.addEventListener("click", (e) => {
     onCellClick(e, cellsStyleMap);
-
-    //the current values of the cell is set in form,
-    //now to adding background colors to form options for the selected cell
-    toggleFormBackground();
   });
 }

@@ -1,5 +1,4 @@
 function onCellClick(e, cellsStyleMap) {
-  console.log(e);
   activeElement = e.target;
 
   let selectedID = activeElement.getAttribute("data-id");
@@ -12,6 +11,10 @@ function onCellClick(e, cellsStyleMap) {
 
   //set the current values of the cell in the form options
   setFormOptions(cellsStyleMap.get(selectedID));
+
+  //the current values of the cell is set in form,
+  //now to adding background colors to form options for the selected cell
+  toggleFormBackground();
 }
 
 function setFormOptions(activeCellOptions) {
